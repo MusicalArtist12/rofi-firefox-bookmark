@@ -54,8 +54,6 @@ if [ -z $@ ]
         echo -en "\0use-hot-keys\x1ftrue\n"
 
     else
-        echo $ROFI_RETV
-
         if [ $ROFI_RETV == 10 ]; then firefox --new-window ${ROFI_INFO} >/dev/null
         else firefox --new-tab ${ROFI_INFO} >/dev/null; fi
 fi
