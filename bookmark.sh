@@ -53,7 +53,10 @@ if [ -z $@ ]
         echo -en "\0message\x1f<b>shift+enter</b>: new window  <b>enter</b>: new tab\n"
         echo -en "\0use-hot-keys\x1ftrue\n"
 
-    else
-        if [ $ROFI_RETV == 10 ]; then firefox --new-window ${ROFI_INFO} >/dev/null
-        else firefox --new-tab ${ROFI_INFO} >/dev/null; fi
+    else 
+        if [ $ROFI_RETV == 10 ]; then 
+            coproc (firefox --new-window ${ROFI_INFO} > /dev/null 2>&1 )
+        else 
+            coproc firefox --new-tab ${ROFI_INFO} >/dev/null 2>&1 )
+        fi
 fi
